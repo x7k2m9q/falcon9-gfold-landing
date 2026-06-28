@@ -1,3 +1,22 @@
+# C++ build artifacts
+cpp_sim/build/
+cpp_sim/build_6dof/
+cpp_sim/build_scvx/
+*.exe
+*.obj
+*.o
+*.a
+*.lib
+*.pdb
+*.ilk
+*.tlog
+*.lastbuildstate
+*.recipe
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*.vcxproj.user
+
 # Python
 __pycache__/
 *.py[cod]

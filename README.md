@@ -74,9 +74,14 @@ falcon9-gfold-landing/
 │   ├── e1e3_nominal.py         # E1+E3联合测试
 │   ├── e4_delay_comp.py        # E4延迟补偿测试
 │   └── step_d_verify.py        # Step D无损凸化验证
+├── cpp_sim/                    # C++实时飞控仿真 (嵌入式工程化预研)
+│   ├── os/                     # 协作式调度器+SPSC环形缓冲+看门狗
+│   ├── hal/                    # 硬件抽象层 (SensorInterface/ActuatorInterface)
+│   ├── core/                   # 定点矩阵+四元数工具
+│   ├── tests/                  # C++单元测试 + 性能基准
+│   └── CMakeLists.txt
 ├── docs/                       # 文档
-│   ├── 论文.md                 # 学术论文
-│   └── 开发日志.txt            # 完整开发日志
+│   └── 论文.md                 # 学术论文
 ├── .gitignore
 ├── LICENSE
 ├── README.md                   # 本文件
@@ -121,6 +126,8 @@ python tests/step_d_verify.py
 2. **理论方案1.1**：油门回归SOCP (Step A) → 真实节流下限40% (Step B) → 气动力进SOCP (Step C) → 无损凸化验证 (Step D)
 3. **理论方案2.0**：弹性体+晃动 (E1) → 发动机动态 (E2) → EKF状态估计 (E3) → 延迟补偿 (E4) → 多发动机1-3-1 (E5) → 工程硬化 (E6)
 
+---
+
 ### 引用
 
 如果您在研究中使用了本项目，请引用：
@@ -128,9 +135,9 @@ python tests/step_d_verify.py
 ```bibtex
 @misc{falcon9_gfold_2026,
   title={G-FOLD Convex Optimization Based 6-DOF Simulation and Engineering Hardening Verification for Falcon 9 Vertical Landing Recovery},
-  author={luc345-2026},
+  author={x7k2m9q},
   year={2026},
-  url={https://github.com/luc345-2026/falcon9-gfold-landing}
+  url={https://github.com/x7k2m9q/falcon9-gfold-landing}
 }
 ```
 
@@ -207,9 +214,14 @@ falcon9-gfold-landing/
 │   ├── e1e3_nominal.py         # E1+E3 joint test
 │   ├── e4_delay_comp.py        # E4 delay compensation test
 │   └── step_d_verify.py        # Step D lossless convexification verification
+├── cpp_sim/                    # C++ real-time flight control simulation (embedded engineering pre-study)
+│   ├── os/                     # Cyclic executive + SPSC ring buffer + watchdog
+│   ├── hal/                    # Hardware abstraction (SensorInterface/ActuatorInterface)
+│   ├── core/                   # Fixed matrix + quaternion utilities
+│   ├── tests/                  # C++ unit tests + performance benchmarks
+│   └── CMakeLists.txt
 ├── docs/                       # Documentation
-│   ├── 论文.md                 # Academic paper (Chinese)
-│   └── 开发日志.txt            # Complete development log (Chinese)
+│   └── 论文.md                 # Academic paper (Chinese)
 ├── .gitignore
 ├── LICENSE
 ├── README.md                   # This file
@@ -254,6 +266,8 @@ This project went through three theoretical plan stages:
 2. **Plan 1.1**: Throttle回归SOCP (Step A) → Real throttle lower bound 40% (Step B) → Aerodynamic force into SOCP (Step C) → Lossless convexification verification (Step D)
 3. **Plan 2.0**: Flexible body+sloshing (E1) → Engine dynamics (E2) → EKF state estimation (E3) → Delay compensation (E4) → Multi-engine 1-3-1 (E5) → Engineering hardening (E6)
 
+---
+
 ### Citation
 
 If you use this project in your research, please cite:
@@ -261,9 +275,9 @@ If you use this project in your research, please cite:
 ```bibtex
 @misc{falcon9_gfold_2026,
   title={G-FOLD Convex Optimization Based 6-DOF Simulation and Engineering Hardening Verification for Falcon 9 Vertical Landing Recovery},
-  author={luc345-2026},
+  author={x7k2m9q},
   year={2026},
-  url={https://github.com/luc345-2026/falcon9-gfold-landing}
+  url={https://github.com/x7k2m9q/falcon9-gfold-landing}
 }
 ```
 
@@ -282,6 +296,6 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 ---
 
-**Repository**: https://github.com/luc345-2026/falcon9-gfold-landing  
-**Author**: luc345-2026  
+**Repository**: https://github.com/x7k2m9q/falcon9-gfold-landing  
+**Author**: x7k2m9q  
 **Completion Date**: June 2026
