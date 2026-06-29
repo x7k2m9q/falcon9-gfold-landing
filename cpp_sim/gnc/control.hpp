@@ -482,7 +482,7 @@ public:
                 tvc_gimbal_out[1] = gy;
 
                 // TVC饱和或推力不足时, 剩余力矩交给RCS
-                // 工程直觉: bang-bang coasting段推力衰减, TVC权限不足,
+                // 工程判断: bang-bang coasting段推力衰减, TVC权限不足,
                 //   必须用RCS补充pitch/yaw控制权, 否则姿态单调发散.
                 // TVC实际力矩: M_tvc = -thrust * arm * sin(gp)
                 float M_tvc_y = -thrust_actual * arm * std::sin(gp);
@@ -492,7 +492,7 @@ public:
             } else {
                 // 推力不足 (bang-bang coasting 段, throttle=0):
                 // TVC 无控制权 → pitch/yaw 交给 RCS 维持姿态
-                // 工程直觉: 滑翔段火箭无推力, 必须靠 RCS 全轴维持姿态防翻车.
+                // 工程判断: 滑翔段火箭无推力, 必须靠 RCS 全轴维持姿态防翻车.
                 // 不修正此路径会导致 tilt 在 coasting 段单调增长 → 发散.
                 rcs_cmd_out[1] = M_cmd[1];
                 rcs_cmd_out[2] = M_cmd[2];
